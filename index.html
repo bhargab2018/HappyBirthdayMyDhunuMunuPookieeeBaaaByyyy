@@ -99,13 +99,34 @@ h1 {
 /* Music Button */
 .music-btn {
     display:block;
-    margin:20px auto;
-    padding:10px 20px;
-    background:#ff4da6;
+    margin:25px auto;
+    padding:15px 30px;
+
+    background: linear-gradient(45deg,#ff4da6,#ff99cc);
     color:white;
+
     border:none;
-    border-radius:20px;
+    border-radius:50px;
+
+    font-size:18px;
+    font-weight:bold;
+
     cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(255,0,150,0.5);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow:0 12px 30px rgba(255,0,150,0.7);
+}
+
+/* Click animation */
+.music-btn:active {
+    transform: scale(0.95);
 }
 
 /* Floating Hearts */
