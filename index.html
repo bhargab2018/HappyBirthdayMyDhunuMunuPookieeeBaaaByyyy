@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#ffd6ec,#ffe6f7,#fff0f5);
+    overflow-x:hidden;
+}
+
+/* Title */
+h1 {
+    text-align:center;
+    font-family:'Pacifico', cursive;
+    color:#ff3399;
+    margin:20px;
+}
+
+/* Section */
+.year {
+    margin:30px;
+    padding:20px;
+    background: rgba(255,255,255,0.6);
+    border-radius:25px;
+}
+
+/* Special Photo */
+.special {
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.special img {
+    width:200px;
+    border-radius:20px;
+    border:5px solid pink;
+}
+
+.special p {
+    margin-top:10px;
+}
+
+/* Gallery */
+.gallery {
+    column-count:4;
+    column-gap:10px;
+}
+
+.gallery img {
+    width:100%;
+    margin-bottom:10px;
+    border-radius:15px;
+    border:3px solid white;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Popup */
+.popup {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+.popup img {
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+}
+
+/* Music Button */
+.music-btn {
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#ff4da6;
+    color:white;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+/* Floating Hearts */
+.heart {
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform:translateY(0);}
+    100% {transform:translateY(-100vh);}
+}
+
+/* Cute floating emojis */
+.cute {
+    position:fixed;
+    font-size:25px;
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0% {transform:translateX(-10vw);}
+    100% {transform:translateX(110vw);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday My Love 💖</h1>
+
+<button class="music-btn" onclick="playMusic()">🎵 Play Our Song</button>
+
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="closePopup()">
+<img id="popupImg">
+</div>
+
+<!-- YEAR 2024 -->
+<div class="year">
+<h2>2024 💖</h2>
+
+<div class="special">
+<img src="2024-special.jpg">
+<p>Where it all began… 💕</p>
+</div>
+
+<div class="gallery">
+<img src="2024-1.jpg" onclick="openPopup(this)">
+<img src="2024-2.jpg" onclick="openPopup(this)">
+<img src="2024-3.jpg" onclick="openPopup(this)">
+<!-- add till 20 -->
+</div>
+</div>
+
+<!-- YEAR 2025 -->
+<div class="year">
+<h2>2025 🌸</h2>
+
+<div class="special">
+<img src="2025-special.jpg">
+<p>Our beautiful journey 💖</p>
+</div>
+
+<div class="gallery">
+<img src="2025-1.jpg" onclick="openPopup(this)">
+<img src="2025-2.jpg" onclick="openPopup(this)">
+<!-- add more -->
+</div>
+</div>
+
+<!-- YEAR 2026 -->
+<div class="year">
+<h2>2026 ✨</h2>
+
+<div class="special">
+<img src="2026-special.jpg">
+<p>More memories to come 💕</p>
+</div>
+
+<div class="gallery">
+<img src="2026-1.jpg" onclick="openPopup(this)">
+<img src="2026-2.jpg" onclick="openPopup(this)">
+</div>
+</div>
+
+<script>
+function playMusic(){
+    document.getElementById("music").play();
+}
+
+/* Popup */
+function openPopup(img){
+    document.getElementById("popup").style.display="flex";
+    document.getElementById("popupImg").src=img.src;
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+/* Hearts */
+setInterval(function(){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},400);
+
+/* Cute moving emojis */
+setInterval(function(){
+    let cute=document.createElement("div");
+    cute.className="cute";
+    cute.innerHTML="🐻💖";
+    cute.style.top=Math.random()*100+"vh";
+    document.body.appendChild(cute);
+    setTimeout(()=>cute.remove(),10000);
+},2000);
+</script>
+
+</body>
+</html>
